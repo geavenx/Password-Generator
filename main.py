@@ -2,15 +2,13 @@ import random
 import string
 from tkinter import *
 
-
 root = Tk()
 root.title("Very Simple Password Generator")
-
 
 alphaLowercase = list(string.ascii_lowercase)
 alphaUppercase = list(string.ascii_uppercase)
 numbers = list(string.digits)
-specialCharacters = list('!@#$%&*()`¨^')
+specialCharacters = list('!@#%&*()`¨^')
 
 
 # função obter
@@ -35,8 +33,16 @@ def obter():
     print("".join(password))
 
     root.clipboard_clear()
+
     finalAnswer = Label(root, text=password)
     finalAnswer.grid(row=4, column=1)
+
+    def copy():
+        root.clipboard_clear()
+        root.clipboard_append(password)
+    copyButton = Button(root, text="Copy to Clipboard",
+                        command=copy, height=1, width=20)
+    copyButton.grid(row=5, column=1)
 
 
 # entry
