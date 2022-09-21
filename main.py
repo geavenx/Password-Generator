@@ -10,7 +10,6 @@ alphaUppercase = list(string.ascii_uppercase)
 numbers = list(string.digits)
 specialCharacters = list('!@#%&*()`¨^')
 
-
 # função obter
 def obter():
     lenghtUppercase = int(uppercaseEntry.get())
@@ -39,7 +38,7 @@ def obter():
 
     def copy():
         root.clipboard_clear()
-        root.clipboard_append(password)
+        root.clipboard_append("".join(password))
     copyButton = Button(root, text="Copy to Clipboard",
                         command=copy, height=1, width=20)
     copyButton.grid(row=5, column=1)
